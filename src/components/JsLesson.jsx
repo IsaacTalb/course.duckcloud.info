@@ -1,23 +1,30 @@
-// src/components/JsLesson.jsx
+// src/App.jsx
 import React from 'react';
-import Lesson from './Lesson';
-import '../styles/jsLesson.css';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import HtmlLesson from './components/HtmlLesson';
+import CssLesson from './components/CssLesson';
+import JsLesson from './components/JsLesson';
+import './styles/lesson.css';
 
-const JsLesson = () => {
-  const content = (
-    <div>
-      <p>JavaScript is a programming language commonly used in web development. It was originally developed by Netscape as a means to add dynamic and interactive elements to websites.</p>
-      <pre>
-        {`
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('h1').textContent = 'Hello, JavaScript!';
-});
-        `}
-      </pre>
-    </div>
+const App = () => {
+  return (
+    <Router>
+      <div className="app">
+        <nav>
+          <ul>
+            <li><Link to="/html">HTML</Link></li>
+            <li><Link to="/css">CSS</Link></li>
+            <li><Link to="/js">JavaScript</Link></li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/html" element={<HtmlLesson />} />
+          <Route path="/css" element={<CssLesson />} />
+          <Route path="/js" element={<JsLesson />} />
+        </Routes>
+      </div>
+    </Router>
   );
-
-  return <Lesson title="JavaScript Lesson" content={content} />;
 };
 
-export default JsLesson;
+export default App;

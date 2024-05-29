@@ -1,29 +1,23 @@
 // src/components/HtmlLesson.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Lesson from './Lesson';
 import '../styles/htmlLesson.css';
 
 const HtmlLesson = () => {
-  const content = (
-    <div>
-      <p>HTML stands for HyperText Markup Language. It is the standard language for creating web pages.</p>
-      <pre>
-        {`
-<!DOCTYPE html>
-<html>
-<head>
-  <title>HTML Lesson</title>
-</head>
-<body>
-  <h1>Hello, World!</h1>
-</body>
-</html>
-        `}
-      </pre>
-    </div>
-  );
+  const [content, setContent] = useState('');
 
-  return <Lesson title="HTML Lesson" content={content} />;
+  useEffect(() => {
+    axios.get('http://localhost:8000/api/html-lesson')
+      .then(response => {
+        setContent(response.data.content);
+      })
+      .catch(error => {
+        console.error('There was an error fetching the lesson!', error);
+      });
+  }, []);
+
+  return <Lesson title="HTML Lesson" content={<div dangerouslySetInnerHTML={{ __html: content }} />} />;
 };
 
 export default HtmlLesson;
