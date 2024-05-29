@@ -1,0 +1,25 @@
+/* src/styles/lesson.css */
+.app {
+    font-family: Arial, sans-serif;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  .lesson {
+    margin: 20px;
+  }
+  
+  .lesson-content {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
