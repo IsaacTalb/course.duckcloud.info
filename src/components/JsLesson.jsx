@@ -1,30 +1,19 @@
-// src/App.jsx
+// src/components/JsLesson.jsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import HtmlLesson from './components/HtmlLesson';
-import CssLesson from './components/CssLesson';
-import JsLesson from './components/JsLesson';
-import './styles/lesson.css';
+// import HtmlLesson from './HtmlLesson';
+// import CssLesson from './CssLesson';
+// import OtherJsLesson from './JsLesson'; // Renamed to avoid conflict
+import '../styles/lesson.css';
 
-const App = () => {
+const JsLesson = () => {
   return (
-    <Router>
-      <div className="app">
-        <nav>
-          <ul>
-            <li><Link to="/html">HTML</Link></li>
-            <li><Link to="/css">CSS</Link></li>
-            <li><Link to="/js">JavaScript</Link></li>
-          </ul>
-        </nav>
-        <Routes>
-          <Route path="/html" element={<HtmlLesson />} />
-          <Route path="/css" element={<CssLesson />} />
-          <Route path="/js" element={<JsLesson />} />
-        </Routes>
-      </div>
-    </Router>
+    <div>
+      <h2>JavaScript Lesson</h2>
+      {/* Content for JavaScript lesson */}
+    </div>
   );
 };
 
-export default App;
+export default JsLesson;
+
+
